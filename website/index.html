@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Matt Shaw — Cloud DevOps Engineer. 20 years in professional kitchens, now building and shipping cloud infrastructure on AWS.">
+    <title>Matt Shaw — Cloud DevOps Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">MATT SHAW</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Cloud DevOps Engineer &nbsp;&middot;&nbsp; Orillia, Ontario</p>
+            <h1 class="hero-name">MATT<br>SHAW</h1>
+            <div class="hero-rule"></div>
+            <p class="hero-tagline">&ldquo;Kitchens and cloud systems fail the same way.<br>I learned to prevent both.&rdquo;</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-stack">
+            <span>AWS</span><span class="dot">&middot;</span>
+            <span>Terraform</span><span class="dot">&middot;</span>
+            <span>Linux</span><span class="dot">&middot;</span>
+            <span>Docker</span><span class="dot">&middot;</span>
+            <span>Kubernetes</span><span class="dot">&middot;</span>
+            <span>GitHub Actions</span>
+        </div>
+    </section>
+
+    <section class="about section" id="about">
+        <div class="container">
+            <p class="section-eyebrow">// About</p>
+            <div class="about-grid">
+                <div class="about-left reveal">
+                    <h2>20 years in professional kitchens taught me one thing: <em>systems either hold under pressure, or they don&apos;t.</em></h2>
+                    <p>I spent two decades managing commercial kitchens &mdash; First Cook at Horseshoe Resort, then Food Service at Costco Wholesale Canada. You learn fast that a kitchen at full service and a cloud system at peak load have the same failure modes: unclear ownership, missing redundancy, no recovery plan.</p>
+                    <p>In 2024 I started formally bridging those worlds. Google Cybersecurity Certificate. Then the Level Up In Tech 37-week Cloud DevOps Engineering program, graduating May 2026. Now I build and document infrastructure on AWS &mdash; Terraform-provisioned, GitHub Actions deployed, version controlled, and publicly documented.</p>
+                    <p>I write about the transition in my newsletter, <strong>Terraforming My Career</strong> &mdash; currently at 134+ subscribers and growing.</p>
+                    <div class="about-badges">
+                        <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener" class="badge">GitHub</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener" class="badge">Medium</a>
+                        <a href="https://www.linkedin.com/in/matt-r-shaw-" target="_blank" rel="noopener" class="badge">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="about-right reveal">
+                    <div class="stack-group">
+                        <p class="stack-label">Cloud &amp; Infrastructure</p>
+                        <div class="stack-pills">
+                            <span>AWS EC2</span><span>S3</span><span>CloudFront</span><span>Lambda</span><span>IAM</span><span>CloudWatch</span><span>Bedrock</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <p class="stack-label">Infrastructure as Code</p>
+                        <div class="stack-pills">
+                            <span>Terraform</span><span>HCL</span><span>Remote State</span><span>S3 Backend</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <p class="stack-label">Containers &amp; Orchestration</p>
+                        <div class="stack-pills">
+                            <span>Docker</span><span>Docker Swarm</span><span>Kubernetes</span><span>Helm</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <p class="stack-label">CI/CD &amp; Automation</p>
+                        <div class="stack-pills">
+                            <span>GitHub Actions</span><span>Jenkins</span><span>OIDC Auth</span><span>Bash</span><span>Python</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <p class="stack-label">Systems &amp; Local AI</p>
+                        <div class="stack-pills">
+                            <span>Ubuntu Linux</span><span>systemd</span><span>Ollama</span><span>CrewAI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects section" id="projects">
+        <div class="container">
+            <p class="section-eyebrow">// Projects</p>
+            <h2 class="section-title">Built. Documented. Shipped.</h2>
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <div class="card-number">01</div>
+                    <div class="card-tags"><span>Terraform</span><span>AWS EC2</span><span>Jenkins</span><span>AL2023</span></div>
+                    <h3>The Jenkins Job That Took 6 Tries</h3>
+                    <p>Provisioned a Jenkins CI/CD server on EC2 with Terraform. Hit six distinct failure points &mdash; hardcoded AMIs, Java version mismatches, AL2023&apos;s switch from yum to dnf, GPG key rotation &mdash; and documented every one.</p>
+                    <div class="card-metric">6 failures &rarr; 1 working pipeline</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="card-number">02</div>
+                    <div class="card-tags"><span>Docker Swarm</span><span>AWS EC2</span><span>WordPress</span></div>
+                    <h3>Self-Healing WordPress Production Stack</h3>
+                    <p>Three-node Docker Swarm cluster on EC2 running a production WordPress stack. When a container dies at 2am, the orchestrator brings it back. No pager, no humans required.</p>
+                    <div class="card-metric">1,555 LinkedIn impressions on launch post</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="card-number">03</div>
+                    <div class="card-tags"><span>AWS Polly</span><span>GitHub Actions</span><span>S3</span></div>
+                    <h3>Multilingual TTS Pipeline</h3>
+                    <p>AWS Polly neural text-to-speech pipeline with full GitHub Actions CI/CD. Converts text to audio across multiple languages on every push &mdash; OIDC auth throughout, zero stored AWS keys.</p>
+                    <div class="card-metric">Neural engine &middot; OIDC auth &middot; Zero stored keys</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="card-number">04</div>
+                    <div class="card-tags"><span>GitHub Actions</span><span>AWS IAM</span><span>OIDC</span></div>
+                    <h3>Serverless CI/CD with OIDC Auth</h3>
+                    <p>GitHub Actions pipeline authenticating to AWS via OIDC federation &mdash; no long-lived access keys stored anywhere. IAM role assumption using signed JWT tokens. The right way to do CI/CD security.</p>
+                    <div class="card-metric">Zero stored credentials &middot; Zero attack surface</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="card-number">05</div>
+                    <div class="card-tags"><span>Bash</span><span>Linux</span><span>systemd</span></div>
+                    <h3>Linux Security Audit Script</h3>
+                    <p>Automated security audit with systemd timer. First run flagged Apache2 exposed and Open WebUI bound to 0.0.0.0. Reduced flagged services from 3 to 0. Snap storage dropped from 54G to 30G &mdash; a 44% reduction.</p>
+                    <div class="card-metric">3 flagged services &rarr; 0 &middot; 44% storage reduction</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4/linux-sys-audit" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="card-number">06</div>
+                    <div class="card-tags"><span>Bash</span><span>Linux</span><span>systemd</span></div>
+                    <h3>Linux Process Sentinel</h3>
+                    <p>Bash service watchdog with autonomous recovery. Monitors critical processes, detects failures, and restarts services without human intervention. Built and tested against live Ubuntu infrastructure.</p>
+                    <div class="card-metric">Autonomous recovery &middot; No pager required</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4/linux-process-sentinel" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener">Write-up &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-grid">
+                <div class="newsletter-left reveal">
+                    <p class="section-eyebrow">// Newsletter</p>
+                    <h2 class="newsletter-title">TERRAFORMING<br>MY CAREER</h2>
+                    <p class="newsletter-desc">A public log of transitioning from professional kitchens to cloud infrastructure. Real projects, real failures, real lessons. 134+ subscribers.</p>
+                    <a href="https://www.linkedin.com/in/matt-r-shaw-" target="_blank" rel="noopener" class="btn btn-primary">Read on LinkedIn &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact section" id="contact">
+        <div class="container">
+            <p class="section-eyebrow center">// Contact</p>
+            <h2 class="section-title center">Currently available for<br><em>junior &amp; entry-level Cloud DevOps roles.</em></h2>
+            <p class="contact-sub">Based in Orillia, Ontario &nbsp;&middot;&nbsp; Open to remote and hybrid across Canada</p>
+            <div class="contact-grid">
+                <a href="mailto:Matt.r.shaw4@proton.me" class="contact-card">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">Matt.r.shaw4@proton.me</span>
+                </a>
+                <a href="https://github.com/mattrshaw4" target="_blank" rel="noopener" class="contact-card">
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">github.com/mattrshaw4</span>
+                </a>
+                <a href="https://www.linkedin.com/in/matt-r-shaw-" target="_blank" rel="noopener" class="contact-card">
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/matt-r-shaw-</span>
+                </a>
+                <a href="https://medium.com/@matt.r.shaw4" target="_blank" rel="noopener" class="contact-card">
+                    <span class="contact-label">Newsletter</span>
+                    <span class="contact-value">medium.com/@matt.r.shaw4</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Matt Shaw &nbsp;&middot;&nbsp; Provisioned with Terraform &nbsp;&middot;&nbsp; Hosted on AWS S3 + CloudFront &nbsp;&middot;&nbsp; <a href="https://github.com/mattrshaw4/portfolio-site" target="_blank" rel="noopener">View source</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
