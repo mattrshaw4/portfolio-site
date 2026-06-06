@@ -141,7 +141,7 @@ Total deploy time: under 30 seconds from push to live.
 
 ## Author
 
-**Matt Shaw** — Cloud DevOps Engineer  
+**Matt Shaw** — Cloud Engineer  
 20 years in professional kitchens. Now building cloud infrastructure.
 
 [mattrshaw.com](https://mattrshaw.com) · [GitHub](https://github.com/mattrshaw4) · [LinkedIn](https://www.linkedin.com/in/matt-r-shaw-) · [Newsletter](https://medium.com/@matt.r.shaw4)
