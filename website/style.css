@@ -222,9 +222,17 @@ body::after {
 .section-title em { color: var(--ember); font-style: italic; }
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
+  grid-template-columns: 0.85fr 1.3fr 1fr;
+  gap: 48px;
   align-items: start;
+}
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 640 / 777;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  filter: grayscale(100%) contrast(1.05);
 }
 .about-left h2 {
   font-family: var(--font-serif);
@@ -412,6 +420,7 @@ body::after {
 .reveal.visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-photo { max-width: 280px; }
 }
 @media (max-width: 640px) {
   .nav-links {
