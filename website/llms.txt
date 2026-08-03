@@ -1,0 +1,22 @@
+# Matt Shaw
+
+> Cloud Engineer based in Orillia, Ontario, Canada. 20 years in Hospitality and Retail, now building and shipping cloud infrastructure on AWS. Currently seeking entry-level and junior Cloud/DevOps roles, remote or hybrid in Canada.
+
+Matt transitioned from two decades in professional hospitality and retail management into cloud engineering, completing the Level Up In Tech Cloud DevOps Engineering program in 2026. He documents the transition in his newsletter, Terraforming My Career.
+
+## Background
+
+- [About](https://mattrshaw.com/#about): Career transition story, technical stack, and areas of focus (AWS, Terraform, Docker, Linux, CI/CD).
+
+## Projects
+
+- [Projects](https://mattrshaw.com/#projects): Seven documented infrastructure projects including a 28-resource Terraform-provisioned AWS auto-scaling stack, a self-healing Docker Swarm cluster, a serverless TTS pipeline, and Linux automation tooling.
+- [GitHub](https://github.com/mattrshaw4): Source code and documentation for all projects.
+
+## Writing
+
+- [Newsletter](https://www.linkedin.com/in/matt-r-shaw-): Terraforming My Career — a public log of the transition from hospitality to cloud infrastructure.
+
+## Contact
+
+- [Contact](https://mattrshaw.com/#contact): Email, GitHub, LinkedIn, and newsletter links.
