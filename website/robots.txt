@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 User-agent: GPTBot
 Allow: /
@@ -18,7 +19,5 @@ Allow: /
 
 User-agent: CCBot
 Allow: /
-
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 Sitemap: https://mattrshaw.com/sitemap.xml
