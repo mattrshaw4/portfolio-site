@@ -144,6 +144,18 @@
             <div class="projects-grid">
                 <article class="project-card reveal">
                     <div class="card-number">01</div>
+                    <div class="card-tags"><span>Astro</span><span>Cloudflare Pages</span><span>CSP</span><span>AEO</span></div>
+                    <h3>Migrating an AEO Agency Off Squarespace</h3>
+                    <p>An agency selling AI-search readiness can&apos;t run on a platform that hides the technical layer that readiness depends on. Rebuilt Penpixel Creative&apos;s own site from Squarespace into a custom Astro build on Cloudflare Pages &mdash; scoped CSP, HSTS with preload, Cloudflare Turnstile on the contact form, and a robots.txt implementing the Content Signals Policy standard with explicit AI crawler allowlisting. The site is the proof of the service.</p>
+                    <div class="card-metric">Astro &middot; Cloudflare Pages &middot; CSP + HSTS preload &middot; AI crawler allowlisting</div>
+                    <div class="card-links">
+                        <a href="https://github.com/mattrshaw4/penpixel-site" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        <a href="https://penpixelcreative.com" target="_blank" rel="noopener">Live Site &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <div class="card-number">02</div>
                     <div class="card-tags"><span>Terraform</span><span>AWS EC2</span><span>Auto Scaling</span><span>ALB</span></div>
                     <h3>28 AWS Resources for $22/Month</h3>
                     <p>Built a full auto-scaling AWS infrastructure with Terraform &mdash; EC2, ALB, ASG, security groups, and more. Documented the 5 things that went wrong along the way so you don&apos;t have to find them yourself.</p>
@@ -155,7 +167,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">02</div>
+                    <div class="card-number">03</div>
                     <div class="card-tags"><span>Terraform</span><span>AWS EC2</span><span>Jenkins</span><span>AL2023</span></div>
                     <h3>The Jenkins Job That Took 6 Tries</h3>
                     <p>Provisioned a Jenkins CI/CD server on EC2 with Terraform. Hit six distinct failure points &mdash; hardcoded AMIs, Java version mismatches, AL2023&apos;s switch from yum to dnf, GPG key rotation &mdash; and documented every one.</p>
@@ -167,7 +179,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">03</div>
+                    <div class="card-number">04</div>
                     <div class="card-tags"><span>Docker Swarm</span><span>AWS EC2</span><span>WordPress</span></div>
                     <h3>Self-Healing WordPress Production Stack</h3>
                     <p>Three-node Docker Swarm cluster on EC2 running a production WordPress stack. When a container dies at 2am, the orchestrator brings it back. No pager, no humans required.</p>
@@ -179,7 +191,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">04</div>
+                    <div class="card-number">05</div>
                     <div class="card-tags"><span>AWS Polly</span><span>GitHub Actions</span><span>S3</span></div>
                     <h3>Multilingual TTS Pipeline</h3>
                     <p>AWS Polly neural text-to-speech pipeline with full GitHub Actions CI/CD. Converts text to audio across multiple languages on every push &mdash; OIDC auth throughout, zero stored AWS keys.</p>
@@ -191,7 +203,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">05</div>
+                    <div class="card-number">06</div>
                     <div class="card-tags"><span>Docker Swarm</span><span>AWS EC2</span><span>Overlay Networking</span></div>
                     <h3>Docker Swarm Self-Healing Container Infrastructure</h3>
                     <p>Three-node Docker Swarm cluster on AWS EC2 with global service deployment and overlay networking. If a node or container fails, Swarm detects and recovers without human intervention. Built to replicate real production failure conditions.</p>
@@ -203,7 +215,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">06</div>
+                    <div class="card-number">07</div>
                     <div class="card-tags"><span>Bash</span><span>Linux</span><span>systemd</span></div>
                     <h3>Linux Security Audit Script</h3>
                     <p>Automated security audit with systemd timer. First run flagged Apache2 exposed and Open WebUI bound to 0.0.0.0. Reduced flagged services from 3 to 0. Snap storage dropped from 54G to 30G &mdash; a 44% reduction.</p>
@@ -215,7 +227,7 @@
                 </article>
 
                 <article class="project-card reveal">
-                    <div class="card-number">07</div>
+                    <div class="card-number">08</div>
                     <div class="card-tags"><span>Bash</span><span>Linux</span><span>systemd</span></div>
                     <h3>Linux Process Sentinel</h3>
                     <p>Bash service watchdog with autonomous recovery. Monitors critical processes, detects failures, and restarts services without human intervention. Built and tested against live Ubuntu infrastructure.</p>
