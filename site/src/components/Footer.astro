@@ -1,0 +1,23 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <p>© {year} Matt Shaw</p>
+    <p>Orillia, Ontario, Canada · Built with Astro · Terraform · S3 + CloudFront · Cloudflare DNS</p>
+  </div>
+</footer>
+<style>
+  .foot { border-top: 1px solid var(--line); }
+  .foot-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px 32px;
+    padding-block: 28px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  p { margin: 0; }
+</style>

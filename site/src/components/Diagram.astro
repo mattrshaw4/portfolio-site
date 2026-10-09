@@ -1,0 +1,59 @@
+<figure class="fig">
+  <figcaption>
+    <span>Fig. 1 · How this site is served</span>
+    <span>mattrshaw.com</span>
+  </figcaption>
+  <ol class="row" aria-label="Request path">
+    <li class="node">Browser</li>
+    <li class="arrow" aria-hidden="true">──▶</li>
+    <li class="node">Cloudflare DNS</li>
+    <li class="arrow" aria-hidden="true">──▶</li>
+    <li class="node hot">CloudFront + ACM</li>
+    <li class="arrow" aria-hidden="true">──▶</li>
+    <li class="node">S3 · private · OAC</li>
+  </ol>
+  <ol class="row alt" aria-label="Deploy path">
+    <li class="node dash">git push</li>
+    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="node dash">GitHub Actions</li>
+    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="node dash">OIDC role · no stored keys</li>
+    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="node dash">s3 sync + invalidate</li>
+  </ol>
+</figure>
+<style>
+  .fig {
+    margin: 0;
+    background: #0d1424;
+    border: 1px solid #2a3650;
+    padding: 28px clamp(16px, 3vw, 36px) 32px;
+    font-family: var(--font-mono);
+  }
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a97ae;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+  }
+  .alt { margin-top: 20px; }
+  .node { border: 1px solid #4a5878; padding: 16px 20px; }
+  .node.hot { border-color: var(--ember); color: var(--ember); }
+  .node.dash { border-style: dashed; }
+  .arrow { color: var(--ember); }
+  .arrow.gold { color: var(--gold); }
+</style>
