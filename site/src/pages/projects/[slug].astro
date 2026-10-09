@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Prose from '../../components/Prose.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const { Content } = await render(p);
+const fmt = new Intl.DateTimeFormat('en-CA', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+const links = [
+  p.data.liveUrl && { href: p.data.liveUrl, label: 'Live site →' },
+  p.data.repo && { href: p.data.repo, label: 'GitHub →' },
+  p.data.writeup && { href: `/writing/${p.data.writeup}/`, label: 'Full write-up →' },
+].filter(Boolean);
+---
+<BaseLayout title={`${p.data.title} | Matt Shaw`} description={p.data.summary}>
+  <article class="wrap article">
+    <a class="back" href="/projects/">← All work</a>
+    <p class="eyebrow">Case study · {fmt.format(p.data.date)}</p>
+    <h1>{p.data.title}</h1>
+    <p class="stack">{p.data.stack.join(' · ')}</p>
+    {links.length > 0 && (
+      <div class="links">
+        {links.map((l) => <a class="btn btn-ghost" href={l.href}>{l.label}</a>)}
+      </div>
+    )}
+    <Prose><Content /></Prose>
+  </article>
+</BaseLayout>
+<style>
+  .article { padding-block: 64px 96px; }
+  .back { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .eyebrow { margin-top: 32px; }
+  h1 { margin: 12px 0 0; max-width: 900px; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 7vw, 104px); line-height: 0.95; }
+  .stack { margin: 20px 0 0; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 48px; }
+  .links a { padding: 12px 22px; font-size: 15px; }
+</style>

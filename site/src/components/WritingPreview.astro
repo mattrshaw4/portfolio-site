@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+const fmt = new Intl.DateTimeFormat('en-CA', { dateStyle: 'long', timeZone: 'UTC' });
+---
+<section id="writing" class="block alt">
+  <div class="wrap">
+    <p class="eyebrow">Terraforming my career</p>
+    <h2>Latest writing</h2>
+    <ul class="posts">
+      {posts.map((post) => (
+        <li>
+          <a href={`/writing/${post.id}/`}>
+            <span class="kind">{post.data.kind}</span>
+            <span class="body">
+              <span class="title">{post.data.title}</span>
+              <span class="sum">{post.data.summary}</span>
+            </span>
+            <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="more"><a href="/writing/">All writing →</a></p>
+  </div>
+</section>
+<style>
+  .posts { list-style: none; margin: 40px 0 0; padding: 0; border-bottom: 1px solid var(--line); }
+  a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; }
+  .posts a { padding: 26px 0; border-top: 1px solid var(--line); }
+  .kind { flex: 0 0 110px; font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-2); }
+  .body { flex: 1 1 380px; min-width: 0; }
+  .body span { display: block; }
+  .title { font-size: 24px; font-weight: 500; line-height: 1.25; }
+  .sum { margin-top: 4px; color: var(--muted); font-size: 16px; }
+  time { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+</style>

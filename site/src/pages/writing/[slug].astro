@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Prose from '../../components/Prose.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat('en-CA', { dateStyle: 'long', timeZone: 'UTC' });
+---
+<BaseLayout title={`${post.data.title} | Matt Shaw`} description={post.data.summary}>
+  <article class="wrap article">
+    <a class="back" href="/writing/">← All writing</a>
+    <p class="eyebrow">{post.data.kind} · {fmt.format(post.data.date)}</p>
+    <h1>{post.data.title}</h1>
+    <Prose><Content /></Prose>
+  </article>
+</BaseLayout>
+<style>
+  .article { padding-block: 64px 96px; }
+  .back { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .eyebrow { margin-top: 32px; }
+  h1 { margin: 12px 0 40px; max-width: 900px; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 7vw, 104px); line-height: 0.95; }
+</style>

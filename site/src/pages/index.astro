@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Diagram from '../components/Diagram.astro';
+import About from '../components/About.astro';
+import WorkSection from '../components/WorkSection.astro';
+import WritingPreview from '../components/WritingPreview.astro';
+import Contact from '../components/Contact.astro';
+---
+<BaseLayout
+  title="Matt Shaw | Cloud DevOps Engineer"
+  description="Matt Shaw is a Cloud DevOps Engineer in Orillia, Ontario, Canada. Twenty years in professional kitchens, now building cloud infrastructure with Terraform, AWS and GitHub Actions."
+>
+  <Hero />
+  <section class="wrap diagram"><Diagram /></section>
+  <About />
+  <WorkSection />
+  <WritingPreview />
+  <Contact />
+</BaseLayout>
+<style>
+  .diagram { padding-bottom: 96px; }
+</style>

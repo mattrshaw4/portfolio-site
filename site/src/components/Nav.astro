@@ -1,0 +1,35 @@
+---
+const links = [
+  { href: '/projects/', label: 'Work' },
+  { href: '/writing/', label: 'Writing' },
+  { href: '/resume/', label: 'Resume' },
+];
+const path = Astro.url.pathname;
+---
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">MATT SHAW<span>.</span></a>
+    <nav aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} aria-current={path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <a class="cta" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<style>
+  .nav { border-bottom: 1px solid var(--line); }
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 22px;
+  }
+  .brand { font-family: var(--font-display); font-size: 34px; letter-spacing: 0.04em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; color: var(--soft); }
+  nav a[aria-current='page'] { color: var(--accent-2); }
+  .cta { background: var(--accent); color: var(--bg); font-weight: 700; padding: 12px 22px; border-radius: 999px; }
+</style>
