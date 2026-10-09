@@ -68,3 +68,6 @@ img { max-width: 100%; display: block; }
 .notfound { padding: clamp(72px, 14vw, 160px) 0; }
 .notfound p:not(.eyebrow) { max-width: 46ch; margin: 16px 0 28px; }
 .notfound .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+:root { color-scheme: dark; }
+pre { scrollbar-width: thin; scrollbar-color: #2b3d52 transparent; }

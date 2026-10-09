@@ -15,7 +15,7 @@ Prompt: Claude Image: Chat GTP
 
 It was a Sunday morning. I had a pot of coffee, a clear task, and what I thought was a reasonable expectation: spin up a Jenkins CI/CD server on AWS using Terraform, document it, push it to GitHub. A few hours, tops.
 
-Four hours later I was staring at my sixth terraform apply and whispering at my screen like that was going to help.
+Four hours later I was staring at my sixth `terraform apply` and whispering at my screen like that was going to help.
 
 The server finally came up. Jenkins loaded in the browser. I took the screenshot I needed for my documentation — and sat there for a minute before typing a single word.
 
@@ -55,23 +55,23 @@ Jenkins had quietly updated its minimum Java requirement. My bootstrap script in
 
 ## Failure 3 — wget Doesn't Come With Amazon Linux 2023
 
-Once I was on the right OS with the right Java version, the script failed because wget isn't installed on AL2023 by default. I'd used wget to download the Jenkins repo file. AL2023 ships lean — it doesn't include tools it considers optional.
+Once I was on the right OS with the right Java version, the script failed because `wget` isn't installed on AL2023 by default. I'd used `wget` to download the Jenkins repo file. AL2023 ships lean — it doesn't include tools it considers optional.
 
 ```
 line 11: wget: command not found
 ```
 
-**What I learned:** Don’t assume tool availability across distributions. curl is the right choice for AL2023 — it ships by default. One character change, but it matters.
+**What I learned:** Don’t assume tool availability across distributions. `curl` is the right choice for AL2023 — it ships by default. One character change, but it matters.
 
 ## Failure 4 — GPG Key Import Order
 
-With curl in place, the repo file downloaded — but dnf still refused to load it. The problem was ordering. I was importing the Jenkins GPG signing key _after_ writing the repo file. dnf validates the key at load time, not at install time. By the time it saw the repo, it was looking for a key that hadn't been imported yet.
+With `curl` in place, the repo file downloaded — but `dnf` still refused to load it. The problem was ordering. I was importing the Jenkins GPG signing key _after_ writing the repo file. `dnf` validates the key at load time, not at install time. By the time it saw the repo, it was looking for a key that hadn't been imported yet.
 
-**What I learned:** Sequencing matters in bootstrap scripts. When dnf encounters a repo with gpgcheck=1, it checks for the key immediately. Import the key first, then add the repo. Always.
+**What I learned:** Sequencing matters in bootstrap scripts. When `dnf` encounters a repo with gpgcheck=1, it checks for the key immediately. Import the key first, then add the repo. Always.
 
 ## Failure 5 — Nested Heredocs Don’t Play Well With Terraform
 
-To write the repo file cleanly inside the user\_data block, I tried using a heredoc inside a heredoc — a shell << 'REPO' block inside Terraform's <<-USERDATA. The file was being written but dnf couldn't parse it. Something in the formatting was getting mangled by the time it hit the instance.
+To write the repo file cleanly inside the user\_data block, I tried using a heredoc inside a heredoc — a shell << 'REPO' block inside Terraform's <<-USERDATA. The file was being written but `dnf` couldn't parse it. Something in the formatting was getting mangled by the time it hit the instance.
 
 I switched to printf to write the repo file inline:
 
@@ -83,7 +83,7 @@ printf '[jenkins]\nname=Jenkins-stable\nbaseurl=https://pkg.jenkins.io/redhat-st
 
 ## Failure 6 — Jenkins Rotated Their GPG Key
 
-Almost there. The repo was loading. dnf found Jenkins. Then:
+Almost there. The repo was loading. `dnf` found Jenkins. Then:
 
 ```
 GPG check FAILEDThe GPG keys listed for the "Jenkins-stable" repository are already installedbut they are not correct for this package.
@@ -105,7 +105,7 @@ Once everything was working, here’s what the final main.tf provisions:
 
 **The EC2 instance:** t2.micro running AL2023 with user\_data\_replace\_on\_change = true, which tells Terraform to destroy and recreate the instance if the bootstrap script changes. Without this flag, Terraform just updates state without re-running the script on the existing instance.
 
-**The bootstrap script**: Installs Java 21, writes the Jenkins repo file, clears the dnf cache, installs Jenkins, enables and starts the service. Every step echoes a log message to /var/log/user-data.log so failures are visible and debuggable.
+**The bootstrap script**: Installs Java 21, writes the Jenkins repo file, clears the `dnf` cache, installs Jenkins, enables and starts the service. Every step echoes a log message to /var/log/user-data.log so failures are visible and debuggable.
 
 **The S3 bucket: P**rivate artifact storage with all four public access block settings explicitly enabled. AWS has a default block at the account level now, but explicitly blocking it in code means the intent is documented and enforced even if account defaults change.
 
@@ -131,7 +131,7 @@ At failure four I had a choice. Shut down the computer, tell myself I’d come b
 
 In a kitchen, your first service in a new station is never smooth. You don’t know where things are, you don’t know the rhythm of the equipment, you haven’t hit the failure modes yet. The second service is better. The third is better still. You’re not learning the recipe you’re learning the environment.
 
-That’s what this project was. I knew the recipe: Terraform, EC2, user\_data, Jenkins. What I didn’t know was the environment: which AMI is actually AL2023, what AL2023 ships with by default, what Jenkins requires this month, how dnf handles GPG validation at repo load time.
+That’s what this project was. I knew the recipe: Terraform, EC2, user\_data, Jenkins. What I didn’t know was the environment: which AMI is actually AL2023, what AL2023 ships with by default, what Jenkins requires this month, how `dnf` handles GPG validation at repo load time.
 
 That knowledge doesn’t come from documentation. It comes from watching things break and figuring out why.
 
@@ -143,4 +143,4 @@ In production, you’d ship logs to CloudWatch. Same principle if something brea
 
 The full code is on GitHub: [github.com/mattrshaw4/jenkins-terraform](https://github.com/mattrshaw4/jenkins-terraform)
 
-Clone it, update the IP address in the Security Group, run terraform apply, and you'll have a Jenkins server running in about six minutes. The README walks through every step including the cleanup command to avoid AWS charges when you're done.
+Clone it, update the IP address in the Security Group, run `terraform apply`, and you'll have a Jenkins server running in about six minutes. The README walks through every step including the cleanup command to avoid AWS charges when you're done.

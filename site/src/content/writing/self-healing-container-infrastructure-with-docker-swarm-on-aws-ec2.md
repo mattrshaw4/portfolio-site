@@ -60,8 +60,8 @@ Here is the full setup, step by step. All three nodes are AWS EC2 instances runn
 -   Name each node with **sudo hostnamectl set-hostname**_._ Naming one as _master-node_ and the other 2 as _worker-node-1_ and _worker-node-2_ and verify with **hostnamectl** command.
 -   Install Docker on all three instances → verify its running
 -   Initialize the Swarm on _master-node_ with **swarm init — advertise-addr <MASTER\_PRIVATE\_IP>**
--   Copy the generated token and Ip address and in each worker node instance paste it after the docker swarm join command.
--   **docker swarm join — token SWMTKN-1-<YOUR-TOKEN> <MASTER\_PRIVATE\_IP>:2377**
+-   Copy the generated token and Ip address and in each worker node instance paste it after the `docker swarm join` command.
+-   **`docker swarm join` — token SWMTKN-1-<YOUR-TOKEN> <MASTER\_PRIVATE\_IP>:2377**
 
 ![](/images/writing/self-healing-container-infrastructure-with-docker-swarm-on-aws-ec2/img-4.png)
 
