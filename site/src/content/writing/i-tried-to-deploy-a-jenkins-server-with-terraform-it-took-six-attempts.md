@@ -1,6 +1,6 @@
 ---
 title: "I Tried to Deploy a Jenkins Server with Terraform. It Took Six Attempts."
-summary: "Here’s what broke, why it broke, and what I actually learned."
+summary: "Provisioning Jenkins on EC2 with Terraform took six attempts. What broke each time (AMI, Java version, wget, GPG key order, nested heredocs, key rotation) and what I changed."
 kind: medium
 date: 2026-04-19
 mediumUrl: "https://medium.com/@matt.r.shaw4/i-tried-to-deploy-a-jenkins-server-with-terraform-it-took-six-attempts-dcd6c14a29d2"

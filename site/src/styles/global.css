@@ -64,3 +64,7 @@ img { max-width: 100%; display: block; }
 .block h2 { margin: 10px 0 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6vw, 88px); line-height: 0.95; }
 .more { margin: 36px 0 0; }
 .more a { font-weight: 700; color: var(--accent); }
+
+.notfound { padding: clamp(72px, 14vw, 160px) 0; }
+.notfound p:not(.eyebrow) { max-width: 46ch; margin: 16px 0 28px; }
+.notfound .actions { display: flex; gap: 12px; flex-wrap: wrap; }
