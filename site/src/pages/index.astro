@@ -1,111 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 import Diagram from '../components/Diagram.astro';
+import About from '../components/About.astro';
+import WorkSection from '../components/WorkSection.astro';
+import WritingPreview from '../components/WritingPreview.astro';
+import Contact from '../components/Contact.astro';
 ---
 <BaseLayout
   title="Matt Shaw | Cloud DevOps Engineer"
   description="Matt Shaw is a Cloud DevOps Engineer in Orillia, Ontario, Canada. Twenty years in professional kitchens, now building cloud infrastructure with Terraform, AWS and GitHub Actions."
 >
-  <section class="wrap hero">
-    <div class="copy">
-      <p class="eyebrow">Cloud DevOps Engineer · Orillia, Ontario, Canada</p>
-      <h1>
-        <span>Kitchen-tested.</span>
-        <span class="accent">Cloud-built.</span>
-      </h1>
-      <p class="lede">
-        Twenty years in professional kitchens taught me how to ship under pressure. Now I build
-        the infrastructure behind it: Terraform, AWS, GitHub Actions, Docker.
-      </p>
-      <div class="actions">
-        <a class="btn btn-primary" href="/projects/">See the work</a>
-        <a class="btn btn-ghost" href="/writing/">Read the writing</a>
-      </div>
-    </div>
-    <aside class="ticket" aria-label="This site's build ticket">
-      <div class="head"><span>ORDER 001</span><span>MATTRSHAW.COM</span></div>
-      <hr />
-      <ul>
-        <li><b>1 ×</b> Terraform-managed infrastructure</li>
-        <li><b>1 ×</b> S3 + CloudFront, private origin</li>
-        <li><b>1 ×</b> GitHub Actions deploy over OIDC</li>
-        <li><b>0 ×</b> Long-lived AWS keys</li>
-      </ul>
-      <hr />
-      <div class="head status"><span>STATUS</span><b>SERVED</b></div>
-    </aside>
-  </section>
-
+  <Hero />
   <section class="wrap diagram"><Diagram /></section>
-
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <h2>Let's talk.</h2>
-      <p class="status-line">Open to Cloud and DevOps roles · Remote and hybrid across Canada</p>
-      <p>Hiring for a cloud or DevOps role, or want to compare notes on Terraform and AWS? Message me on LinkedIn.</p>
-      <div class="links">
-        <a class="dark" href="https://www.linkedin.com/in/matt-r-shaw-">LinkedIn</a>
-        <a class="outline" href="https://github.com/mattrshaw4">GitHub</a>
-        <a class="outline" href="https://medium.com/@matt.r.shaw4">Medium</a>
-      </div>
-    </div>
-  </section>
+  <About />
+  <WorkSection />
+  <WritingPreview />
+  <Contact />
 </BaseLayout>
-
 <style>
-  .hero {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 56px;
-    padding-block: 88px 72px;
-  }
-  .copy { flex: 1 1 560px; min-width: 0; }
-  h1 {
-    margin: 20px 0 0;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(72px, 11.5vw, 168px);
-    line-height: 0.88;
-    letter-spacing: 0.01em;
-  }
-  h1 span { display: block; }
-  .accent { color: var(--ember); }
-  .lede { margin: 28px 0 0; max-width: 560px; font-size: 20px; color: var(--soft); }
-  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-
-  .ticket {
-    flex: 1 1 340px;
-    max-width: 440px;
-    background: var(--text);
-    color: var(--bg);
-    padding: 28px 28px 32px;
-    border-radius: 4px;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    transform: rotate(1.5deg);
-  }
-  .ticket .head { display: flex; justify-content: space-between; gap: 12px; font-weight: 500; letter-spacing: 0.08em; }
-  .ticket hr { border: 0; border-top: 2px dashed #52525b; margin: 16px 0; }
-  .ticket ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-  .ticket li b { display: inline-block; min-width: 3ch; margin-right: 10px; font-weight: 500; }
-  .status { color: #52525b; }
-  .status b { color: var(--bg); font-weight: 500; }
-
   .diagram { padding-bottom: 96px; }
-
-  .contact { background: var(--ember); color: var(--bg); padding-block: 96px; }
-  .contact h2 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(72px, 12vw, 176px);
-    line-height: 0.88;
-  }
-  .contact p { margin: 20px 0 0; max-width: 520px; font-size: 20px; }
-  .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-  .links a { padding: 14px 26px; border-radius: 999px; font-weight: 700; }
-  .dark { background: var(--bg); color: var(--text); }
-  .outline { border: 2px solid var(--bg); }
-  .contact .status-line { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
 </style>

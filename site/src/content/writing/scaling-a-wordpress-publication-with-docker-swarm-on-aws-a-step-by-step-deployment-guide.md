@@ -1,6 +1,6 @@
 ---
 title: "Scaling a WordPress Publication with Docker Swarm on AWS: A Step-by-Step Deployment Guide"
-summary: "Prompt: Claude Image: Leonardo.AI"
+summary: "Deploying WordPress on a three-node Docker Swarm on AWS: overlay networks, a persistent MySQL volume and three WordPress replicas."
 kind: medium
 date: 2026-04-03
 mediumUrl: "https://medium.com/@matt.r.shaw4/scaling-a-wordpress-publication-with-docker-swarm-on-aws-a-step-by-step-deployment-guide-f80aeddcb535"

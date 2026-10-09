@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  no: number;
+  as?: 'h2' | 'h3';
+}
+const { project, no, as: Tag = 'h3' } = Astro.props;
+---
+<a class="card" href={`/projects/${project.id}/`}>
+  <div class="top">
+    <span>TICKET {String(no).padStart(3, '0')}</span>
+    <span class="tag">CASE STUDY</span>
+  </div>
+  <Tag class="title">{project.data.title}</Tag>
+  <p>{project.data.summary}</p>
+  <span class="stack">{project.data.stack.join(' · ')}</span>
+  <span class="go">Read the case study →</span>
+</a>
+<style>
+  .card {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .tag { color: var(--accent); }
+  .title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1; }
+  p { margin: 0; flex-grow: 1; color: var(--soft); font-size: 16px; }
+  .stack { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .go { font-weight: 700; color: var(--accent); }
+</style>

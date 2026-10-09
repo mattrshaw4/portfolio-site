@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://mattrshaw.com',
   trailingSlash: 'always',
+  markdown: { syntaxHighlight: false },
   integrations: [sitemap()],
   build: {
     format: 'directory',

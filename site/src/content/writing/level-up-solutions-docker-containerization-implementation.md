@@ -1,6 +1,6 @@
 ---
 title: "Level Up Solutions: Docker Containerization Implementation"
-summary: "Prompt: Claude Image: Chat GTP"
+summary: "Docker containerization for Level Up Solutions: an Apache 2 web server image shared through Docker Hub."
 kind: medium
 date: 2026-03-15
 mediumUrl: "https://medium.com/@matt.r.shaw4/level-up-solutions-docker-containerization-implementation-64298f5e96df"

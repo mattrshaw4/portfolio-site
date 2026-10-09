@@ -1,6 +1,6 @@
 ---
 title: "Dockerizing Jenkins: From Setup to Scalable Pipeline"
-summary: "Prompt: Claude Image: ChatGTP"
+summary: "Running Jenkins in Docker with persistent volumes, then hardening the container and the Jenkins UI with role-based access and secrets handling."
 kind: medium
 date: 2026-03-16
 mediumUrl: "https://medium.com/@matt.r.shaw4/dockerizing-jenkins-from-setup-to-scalable-pipeline-1a6beead968a"
@@ -9,7 +9,7 @@ tags: ["jenkins","software-engineering","ci-cd-pipeline","devops","docker"]
 
 ![](/images/writing/dockerizing-jenkins-from-setup-to-scalable-pipeline/img-1.png)
 
-Prompt: **Claude** Image: **ChatGTP**
+Prompt: **Claude** Image: **ChatGPT**
 
 Level Up Solutions is looking to modernize its software development and deployment workflows. To do that, the team is adopting Docker and Jenkins pairing containerization with an industry standard CI/CD platform to build something more reliable, repeatable, and scalable.
 

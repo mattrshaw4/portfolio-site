@@ -1,6 +1,6 @@
 ---
 title: "Scaling Luxury: Aurora Digital’s Automated AWS Migration with CloudFormation"
-summary: "Created using Chat GPT"
+summary: "Deploying an Apache web server on EC2 with a CloudFormation template for an online luxury home goods retailer."
 kind: medium
 date: 2025-12-01
 mediumUrl: "https://medium.com/@matt.r.shaw4/scaling-luxury-aurora-digitals-automated-aws-migration-with-cloudformation-8dce0c877d77"

@@ -14,19 +14,19 @@
   </ol>
   <ol class="row alt" aria-label="Deploy path">
     <li class="node dash">git push</li>
-    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="arrow green" aria-hidden="true">──▶</li>
     <li class="node dash">GitHub Actions</li>
-    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="arrow green" aria-hidden="true">──▶</li>
     <li class="node dash">OIDC role · no stored keys</li>
-    <li class="arrow gold" aria-hidden="true">──▶</li>
+    <li class="arrow green" aria-hidden="true">──▶</li>
     <li class="node dash">s3 sync + invalidate</li>
   </ol>
 </figure>
 <style>
   .fig {
     margin: 0;
-    background: #0d1424;
-    border: 1px solid #2a3650;
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
     padding: 28px clamp(16px, 3vw, 36px) 32px;
     font-family: var(--font-mono);
   }
@@ -38,7 +38,7 @@
     font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #8a97ae;
+    color: var(--muted);
   }
   .row {
     display: flex;
@@ -51,9 +51,9 @@
     font-size: 14px;
   }
   .alt { margin-top: 20px; }
-  .node { border: 1px solid #4a5878; padding: 16px 20px; }
-  .node.hot { border-color: var(--ember); color: var(--ember); }
+  .node { border: 1px solid var(--node-line); padding: 16px 20px; }
+  .node.hot { border-color: var(--accent); color: var(--accent); }
   .node.dash { border-style: dashed; }
-  .arrow { color: var(--ember); }
-  .arrow.gold { color: var(--gold); }
+  .arrow { color: var(--accent); }
+  .arrow.green { color: var(--accent-2); }
 </style>

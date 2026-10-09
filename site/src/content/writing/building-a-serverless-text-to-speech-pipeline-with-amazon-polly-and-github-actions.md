@@ -1,6 +1,6 @@
 ---
 title: "Building a Serverless Text-to-Speech Pipeline with Amazon Polly and GitHub Actions"
-summary: "Pixel Learning Co. Is a education startup committed to accessibility and automation needs a solution to deliver course content in audio format — serving…"
+summary: "A GitHub Actions pipeline that turns course text into Amazon Polly audio: pull requests publish a beta file and merges publish production."
 kind: medium
 date: 2026-02-22
 mediumUrl: "https://medium.com/@matt.r.shaw4/building-a-serverless-text-to-speech-pipeline-with-amazon-polly-and-github-actions-898b46c3c051"

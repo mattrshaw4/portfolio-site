@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resume } from '../data/resume';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => b.data.order - a.data.order).slice(0, 5);
+---
+<BaseLayout
+  title="Resume | Matt Shaw"
+  description="Resume of Matt Shaw, Cloud DevOps Engineer in Orillia, Ontario, Canada: AWS, Terraform, GitHub Actions, Docker and Linux."
+>
+  <section class="wrap page">
+    <p class="eyebrow">$ cat resume.txt</p>
+    <h1>Resume</h1>
+    <p class="intro">{resume.headline}</p>
+
+    <div class="cols">
+      <div class="main">
+        <h2>Experience</h2>
+        <p class="note">{resume.experienceIntro}</p>
+        {resume.experience.map((j) => (
+          <div class="item">
+            <div class="row">
+              <span class="role">{j.role}</span>
+              {j.years && <span class="meta">{j.years}</span>}
+            </div>
+            <div class="org">{j.org}</div>
+            {j.note && <p>{j.note}</p>}
+          </div>
+        ))}
+
+        <h2>Training</h2>
+        {resume.training.map((t) => (
+          <div class="item">
+            <div class="row"><span class="role">{t.name}</span></div>
+            <div class="org">{t.org}</div>
+            {t.detail && <p>{t.detail}</p>}
+          </div>
+        ))}
+
+        <h2>Selected projects</h2>
+        {projects.map((p) => (
+          <div class="item">
+            <div class="row"><a class="role" href={`/projects/${p.id}/`}>{p.data.title}</a></div>
+            <p>{p.data.summary}</p>
+          </div>
+        ))}
+      </div>
+
+      <aside class="side">
+        <h2>Skills</h2>
+        {resume.skills.map((g) => (
+          <div class="group">
+            <div class="gname">{g.group}</div>
+            <div class="chips">{g.items.map((i) => <span>{i}</span>)}</div>
+          </div>
+        ))}
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .page { padding-block: 80px 96px; }
+  h1 { margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(56px, 7vw, 96px); line-height: 0.95; }
+  .intro { margin: 16px 0 0; max-width: 640px; font-size: 20px; color: var(--soft); }
+  .cols { display: flex; flex-wrap: wrap; gap: 56px; margin-top: 56px; }
+  .main { flex: 2 1 520px; min-width: 0; }
+  .side { flex: 1 1 300px; min-width: 0; }
+  h2 { margin: 48px 0 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  h2:first-child { margin-top: 0; }
+  .note { margin: 14px 0 0; color: var(--muted); }
+  .item { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+  .role { font-size: 21px; font-weight: 700; }
+  .meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  .org { margin-top: 2px; color: var(--accent); }
+  .item p { margin: 8px 0 0; color: var(--soft); font-size: 16px; }
+  .group { margin-top: 24px; }
+  .gname { font-size: 14px; font-weight: 700; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .chips span { border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 14px; font-family: var(--font-mono); font-size: 13px; }
+</style>

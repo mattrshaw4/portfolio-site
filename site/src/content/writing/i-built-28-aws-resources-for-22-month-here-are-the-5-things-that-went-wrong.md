@@ -1,6 +1,6 @@
 ---
 title: "I Built 28 AWS Resources for $22/Month. Here Are the 5 Things That Went Wrong."
-summary: "I typed mkdir and got an error."
+summary: "What building auto-scaling AWS infrastructure in Terraform looks like: 28 resources, five things that went wrong, and about $22 a month."
 kind: medium
 date: 2026-06-29
 mediumUrl: "https://medium.com/@matt.r.shaw4/i-built-28-aws-resources-for-22-month-here-are-the-5-things-that-went-wrong-736eb94bf4bf"

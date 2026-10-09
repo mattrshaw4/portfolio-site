@@ -1,0 +1,45 @@
+<section class="wrap hero">
+  <div class="copy">
+    <p class="eyebrow">Cloud DevOps Engineer · Orillia, Ontario, Canada</p>
+    <h1>
+      <span>Kitchen-tested.</span>
+      <span class="accent">Cloud-built.</span>
+    </h1>
+    <p class="lede">
+      Twenty years in professional kitchens taught me how to ship under pressure. Now I build
+      the infrastructure behind it: Terraform, AWS, GitHub Actions, Docker.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/projects/">See the work</a>
+      <a class="btn btn-ghost" href="/writing/">Read the writing</a>
+    </div>
+  </div>
+  <aside class="ticket" aria-label="This site's build ticket">
+    <div class="head"><span>ORDER 001</span><span>MATTRSHAW.COM</span></div>
+    <hr />
+    <ul>
+      <li><b>1 ×</b> Terraform-managed infrastructure</li>
+      <li><b>1 ×</b> S3 + CloudFront, private origin</li>
+      <li><b>1 ×</b> GitHub Actions deploy over OIDC</li>
+      <li><b>0 ×</b> Long-lived AWS keys</li>
+    </ul>
+    <hr />
+    <div class="head status"><span>STATUS</span><b>SERVED</b></div>
+  </aside>
+</section>
+<style>
+  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-block: 88px 72px; }
+  .copy { flex: 1 1 560px; min-width: 0; }
+  h1 { margin: 20px 0 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 8.6vw, 124px); line-height: 0.9; letter-spacing: 0.01em; }
+  h1 span { display: block; white-space: nowrap; }
+  .accent { color: var(--accent); }
+  .lede { margin: 28px 0 0; max-width: 560px; font-size: 20px; color: var(--soft); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .ticket { flex: 1 1 340px; max-width: 440px; background: var(--text); color: var(--bg); padding: 28px 28px 32px; border-radius: 4px; font-family: var(--font-mono); font-size: 14px; transform: rotate(1.5deg); }
+  .head { display: flex; justify-content: space-between; gap: 12px; font-weight: 500; letter-spacing: 0.08em; }
+  hr { border: 0; border-top: 2px dashed var(--ticket-muted); margin: 16px 0; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  li b { display: inline-block; min-width: 3ch; margin-right: 10px; font-weight: 500; }
+  .status { color: var(--ticket-muted); }
+  .status b { color: var(--bg); font-weight: 500; }
+</style>

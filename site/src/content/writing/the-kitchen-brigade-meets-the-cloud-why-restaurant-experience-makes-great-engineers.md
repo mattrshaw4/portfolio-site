@@ -1,6 +1,6 @@
 ---
 title: "The Kitchen Brigade Meets the Cloud: Why Restaurant Experience Makes Great Engineers"
-summary: "Created with Canva AI"
+summary: "Restaurant kitchen work parallels cloud engineering, which makes line-cook skills transferable, not a dead end."
 kind: medium
 date: 2026-01-06
 mediumUrl: "https://medium.com/@matt.r.shaw4/the-kitchen-brigade-meets-the-cloud-why-restaurant-experience-makes-great-engineers-b4fc810a2cbd"

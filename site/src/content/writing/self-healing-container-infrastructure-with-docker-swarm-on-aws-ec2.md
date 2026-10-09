@@ -1,6 +1,6 @@
 ---
 title: "Self-Healing Container Infrastructure with Docker Swarm on AWS EC2"
-summary: "Prompt: Claude Image: Chat GTP"
+summary: "A three-node Docker Swarm on EC2 running a global service, built for a shipping company whose containers stayed down when they failed."
 kind: medium
 date: 2026-03-29
 mediumUrl: "https://medium.com/@matt.r.shaw4/self-healing-container-infrastructure-with-docker-swarm-on-aws-ec2-907c91fdc4cf"
