@@ -66,6 +66,22 @@ resource "aws_cloudfront_origin_access_control" "website" {
   signing_protocol                  = "sigv4"
 }
 
+# ─── Edge URL handling ────────────────────────────────────────────────────────
+# Serves directory index files, enforces trailing slashes, redirects www to apex
+
+resource "aws_cloudfront_function" "url_rewrite" {
+  name    = "portfolio-url-rewrite"
+  runtime = "cloudfront-js-2.0"
+  comment = "Directory index rewrite, trailing slash redirect, www to apex redirect"
+  publish = true
+  code    = file("${path.module}/functions/url-rewrite.js")
+}
+
+# AWS-managed cache policy: gzip + brotli, honors origin Cache-Control within 1s to 1y
+data "aws_cloudfront_cache_policy" "optimized" {
+  name = "Managed-CachingOptimized"
+}
+
 # ─── CloudFront Distribution ──────────────────────────────────────────────────
 
 resource "aws_cloudfront_distribution" "website" {
@@ -81,26 +97,22 @@ resource "aws_cloudfront_distribution" "website" {
   }
 
   default_cache_behavior {
-    target_origin_id       = "S3Origin"
-    viewer_protocol_policy = "redirect-to-https"
-    allowed_methods        = ["GET", "HEAD"]
-    cached_methods         = ["GET", "HEAD"]
-    compress               = true
+    target_origin_id           = "S3Origin"
+    viewer_protocol_policy     = "redirect-to-https"
+    allowed_methods            = ["GET", "HEAD"]
+    cached_methods             = ["GET", "HEAD"]
+    compress                   = true
+    cache_policy_id            = data.aws_cloudfront_cache_policy.optimized.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
 
-    forwarded_values {
-      query_string = false
-      cookies {
-        forward = "none"
-      }
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
     }
-
-    min_ttl     = 0
-    default_ttl = 86400    # 24 hours
-    max_ttl     = 31536000 # 1 year
   }
 
   # Serve index.html for any 404 - handles direct URL navigation
+  # (replaced in Stage B with a real 404 page once the Astro site is live)
   custom_error_response {
     error_code         = 404
     response_code      = 200
