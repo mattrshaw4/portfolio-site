@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => b.data.order - a.data.order);
+---
+<BaseLayout
+  title="Work | Matt Shaw"
+  description="Cloud and DevOps case studies: Terraform, AWS, Docker Swarm, Cloudflare and Linux automation, with what broke and what I would change."
+>
+  <section class="wrap page">
+    <p class="eyebrow">$ ls -t work/</p>
+    <h1>Work</h1>
+    <p class="intro">Newest first. Each ticket is a case study: what I built, what broke, what I would change.</p>
+    <div class="grid">
+      {projects.map((p, i) => (
+        <a class="card" href={`/projects/${p.id}/`}>
+          <div class="top">
+            <span>TICKET {String(projects.length - i).padStart(3, '0')}</span>
+            <span class="tag">CASE STUDY</span>
+          </div>
+          <h2>{p.data.title}</h2>
+          <p>{p.data.summary}</p>
+          <span class="stack">{p.data.stack.join(' · ')}</span>
+          <span class="go">Read the case study →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .page { padding-block: 80px 96px; }
+  h1 { margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(56px, 7vw, 96px); line-height: 0.95; }
+  .intro { margin: 12px 0 0; max-width: 560px; color: var(--muted); }
+  .grid { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 48px; }
+  .card {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .top { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 16px; border-bottom: 1px dashed var(--line-strong); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--muted); }
+  .tag { color: var(--ember); }
+  h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 1; }
+  p { margin: 0; flex-grow: 1; color: var(--soft); font-size: 16px; }
+  .stack { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .go { font-weight: 700; color: var(--ember); }
+</style>

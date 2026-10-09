@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const fmt = new Intl.DateTimeFormat('en-CA', { dateStyle: 'long', timeZone: 'UTC' });
+---
+<BaseLayout
+  title="Writing | Matt Shaw"
+  description="Newsletter issues and Medium posts from Terraforming My Career: lessons from moving from professional kitchens to cloud and DevOps engineering."
+>
+  <section class="wrap page">
+    <p class="eyebrow">$ git log --oneline writing/</p>
+    <h1>Writing</h1>
+    <p class="intro">Terraforming my career: newsletter issues and Medium posts, kept next to the work they describe.</p>
+    <ul class="list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/writing/${post.id}/`}>
+            <span class="kind">{post.data.kind}</span>
+            <span class="body">
+              <span class="title">{post.data.title}</span>
+              <span class="sum">{post.data.summary}</span>
+              <time datetime={post.data.date.toISOString()}>{fmt.format(post.data.date)}</time>
+            </span>
+            <span class="go">read →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+<style>
+  .page { padding-block: 80px 96px; }
+  h1 { margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(56px, 7vw, 96px); line-height: 0.95; }
+  .intro { margin: 12px 0 0; max-width: 560px; color: var(--muted); }
+  .list { list-style: none; margin: 48px 0 0; padding: 0; border-bottom: 1px solid var(--line); }
+  li a { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding: 28px 0; border-top: 1px solid var(--line); }
+  .kind { flex: 0 0 110px; font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+  .body { flex: 1 1 380px; min-width: 0; }
+  .body > span, .body > time { display: block; }
+  .title { font-size: 26px; font-weight: 500; line-height: 1.25; }
+  .sum { margin-top: 4px; color: var(--muted); font-size: 16px; }
+  time { margin-top: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+  .go { font-family: var(--font-mono); font-size: 14px; }
+</style>
