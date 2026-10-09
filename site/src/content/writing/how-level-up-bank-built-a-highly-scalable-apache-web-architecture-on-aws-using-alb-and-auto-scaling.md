@@ -2,6 +2,7 @@
 title: "How Level-Up Bank Built A Highly Scalable Apache Web Architecture on AWS Using ALB and Auto Scaling"
 summary: "A scalable Apache web tier on AWS: VPC, launch template, Application Load Balancer and an Auto Scaling group."
 kind: medium
+draft: true
 date: 2025-11-24
 mediumUrl: "https://medium.com/@matt.r.shaw4/how-level-up-bank-built-a-highly-scalable-apache-web-architecture-on-aws-using-alb-and-auto-scaling-3b8106767db7"
 tags: ["load-balancing","cloud-computing","ec2","aws","vpc"]
