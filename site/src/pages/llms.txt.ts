@@ -19,7 +19,6 @@ export const GET: APIRoute = async () => {
     '## Pages',
     '',
     `- [Home](${SITE}/): Who Matt is and what he is building.`,
-    `- [Resume](${SITE}/resume/): Work history and skills.`,
     `- [Projects](${SITE}/projects/): ${projects.length} case studies with architecture, decisions and what went wrong.`,
     `- [Writing](${SITE}/writing/): Newsletter issues and articles on AWS, Terraform, Docker and CI/CD.`,
     '',
