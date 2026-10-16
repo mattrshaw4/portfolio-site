@@ -28,6 +28,9 @@ function handler(event) {
   var uri = request.uri;
   var host = request.headers.host ? request.headers.host.value : '';
   var isWww = host.indexOf('www.') === 0;
+  if (uri === '/sitemap.xml') {
+    return redirect('https://' + (isWww ? host.substring(4) : host) + '/sitemap-index.xml');
+  }
   var lastSegment = uri.substring(uri.lastIndexOf('/') + 1);
   var needsSlash = uri.charAt(uri.length - 1) !== '/' && lastSegment.indexOf('.') === -1;
 
