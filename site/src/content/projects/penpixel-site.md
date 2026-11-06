@@ -4,7 +4,7 @@ summary: "Rebuilt Penpixel Creative's own site from Squarespace into a custom As
 stack: ["Astro", "Tailwind CSS", "Cloudflare Pages", "CSP", "HSTS preload", "Cloudflare Turnstile"]
 date: 2026-06-29
 order: 8
-repo: "https://github.com/mattrshaw4/penpixel-site"
+repo: "https://github.com/Penpixel-Creative/penpixel-site"
 liveUrl: "https://penpixelcreative.com"
 ---
 
